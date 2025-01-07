@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자가 진단 체크리스트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #444;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .question input[type="range"] {
+            width: 100%;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .chart-container {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>자가 진단 체크리스트</h1>
+
+        <form id="surveyForm">
+            <!-- 신앙 질문지 -->
+            <div class="section">
+                <h2>신앙 질문지</h2>
+                <div class="question">
+                    <label>1. 최근 1달 기준으로, 하루동안 기도/말씀을 보거나 듣나요?</label>
+                    <input type="checkbox" value="1" name="faith1"> 1점
+                    <input type="checkbox" value="2" name="faith1"> 2점
+                    <input type="checkbox" value="3" name="faith1"> 3점
+                    <input type="checkbox" value="4" name="faith1"> 4점
+                    <input type="checkbox" value="5" name="faith1"> 5점
+                </div>
+                <div class="question">
+                    <label>2. 어디서든 하나님 일에 대한 생각을 하나요?</label>
+                    <input type="checkbox" value="1" name="faith2"> 1점
+                    <input type="checkbox" value="2" name="faith2"> 2점
+                    <input type="checkbox" value="3" name="faith2"> 3점
+                    <input type="checkbox" value="4" name="faith2"> 4점
+                    <input type="checkbox" value="5" name="faith2"> 5점
+                </div>
+                <div class="question">
+                    <label>3. 어려움과 역경 속에서 하나님께 의지하고, 하나님을 통해 해결할 수 있다고 생각하고 기도하나요?</label>
+                    <input type="checkbox" value="1" name="faith3"> 1점
+                    <input type="checkbox" value="2" name="faith3"> 2점
+                    <input type="checkbox" value="3" name="faith3"> 3점
+                    <input type="checkbox" value="4" name="faith3"> 4점
+                    <input type="checkbox" value="5" name="faith3"> 5점
+                </div>
+                <div class="question">
+                    <label>4. 영이 육이 들어 역사하는 것을 믿고, 윗사명자의 말에 순종하려고 노력하나요?</label>
+                    <input type="checkbox" value="1" name="faith4"> 1점
+                    <input type="checkbox" value="2" name="faith4"> 2점
+                    <input type="checkbox" value="3" name="faith4"> 3점
+                    <input type="checkbox" value="4" name="faith4"> 4점
+                    <input type="checkbox" value="5" name="faith4"> 5점
+                </div>
+                <div class="question">
+                    <label>5. 내가 가진 일에 대한 믿음과 소망을 5분 이내로 다른 사람에게 설명할 수 있나요?</label>
+                    <input type="checkbox" value="1" name="faith5"> 1점
+                    <input type="checkbox" value="2" name="faith5"> 2점
+                    <input type="checkbox" value="3" name="faith5"> 3점
+                    <input type="checkbox" value="4" name="faith5"> 4점
+                    <input type="checkbox" value="5" name="faith5"> 5점
+                </div>
+                <div class="question">
+                    <label>6. 매일 시간의 십일조(하루 2시간 이상)를 하나님 일에 사용하고 있나요?</label>
+                    <input type="checkbox" value="1" name="faith6"> 1점
+                    <input type="checkbox" value="2" name="faith6"> 2점
+                    <input type="checkbox" value="3" name="faith6"> 3점
+                    <input type="checkbox" value="4" name="faith6"> 4점
+                    <input type="checkbox" value="5" name="faith6"> 5점
+                </div>
+                <div class="question">
+                    <label>7. 나는 하나님께 대한 감사를 자주 느끼나요?</label>
+                    <input type="checkbox" value="1" name="faith7"> 1점
+                    <input type="checkbox" value="2" name="faith7"> 2점
+                    <input type="checkbox" value="3" name="faith7"> 3점
+                    <input type="checkbox" value="4" name="faith7"> 4점
+                    <input type="checkbox" value="5" name="faith7"> 5점
+                </div>
+            </div>
+
+            <!-- 전문성 -->
+            <div class="section">
+                <h2>전문성</h2>
+                <div class="question">
+                    <label>1. 내가 속한 분야에서 필수적인 지식을 쌓기 위해 노력하나요?</label>
+                    <input type="checkbox" value="1" name="pro1"> 1점
+                    <input type="checkbox" value="2" name="pro1"> 2점
+                    <input type="checkbox" value="3" name="pro1"> 3점
+                    <input type="checkbox" value="4" name="pro1"> 4점
+                    <input type="checkbox" value="5" name="pro1"> 5점
+                </div>
+                <div class="question">
+                    <label>2. 최신 트렌드와 신천지 흐름에 관심을 가지고 적용하나요?</label>
+                    <input type="checkbox" value="1" name="pro2"> 1점
+                    <input type="checkbox" value="2" name="pro2"> 2점
+                    <input type="checkbox" value="3" name="pro2"> 3점
+                    <input type="checkbox" value="4" name="pro2"> 4점
+                    <input type="checkbox" value="5" name="pro2"> 5점
+                </div>
+                <div class="question">
+                    <label>3. 업무에서 실수를 줄이기 위해 체계적인 방법을 사용하나요?</label>
+                    <input type="checkbox" value="1" name="pro3"> 1점
+                    <input type="checkbox" value="2" name="pro3"> 2점
+                    <input type="checkbox" value="3" name="pro3"> 3점
+                    <input type="checkbox" value="4" name="pro3"> 4점
+                    <input type="checkbox" value="5" name="pro3"> 5점
+                </div>
+                <div class="question">
+                    <label>4. 맡은 업무를 마감 기한 내에 완성도 있게 수행하나요?</label>
+                    <input type="checkbox" value="1" name="pro4"> 1점
+                    <input type="checkbox" value="2" name="pro4"> 2점
+                    <input type="checkbox" value="3" name="pro4"> 3점
+                    <input type="checkbox" value="4" name="pro4"> 4점
+                    <input type="checkbox" value="5" name="pro4"> 5점
+                </div>
+                <div class="question">
+                    <label>5. 내가 가진 전문성을 타인과 공유하려고 노력하나요?</label>
+                    <input type="checkbox" value="1" name="pro5"> 1점
+                    <input type="checkbox" value="2" name="pro5"> 2점
+                    <input type="checkbox" value="3" name="pro5"> 3점
+                    <input type="checkbox" value="4" name="pro5"> 4점
+                    <input type="checkbox" value="5" name="pro5"> 5점
+                </div>
+                <div class="question">
+                    <label>6. 내가 가진 사명에 대해 자부심을 가지고 실력 발전을 위해 노력하나요?</label>
+                    <input type="checkbox" value="1" name="pro6"> 1점
+                    <input type="checkbox" value="2" name="pro6"> 2점
+                    <input type="checkbox" value="3" name="pro6"> 3점
+                    <input type="checkbox" value="4" name="pro6"> 4점
+                    <input type="checkbox" value="5" name="pro6"> 5점
+                </div>
+                <div class="question">
+                    <label>7. 내가 참여한 업무 결과에 대한 윗사명자의 평가는 대체로 긍정적인가요?</label>
+                    <input type="checkbox" value="1" name="pro7"> 1점
+                    <input type="checkbox" value="2" name="pro7"> 2점
+                    <input type="checkbox" value="3" name="pro7"> 3점
+                    <input type="checkbox" value="4" name="pro7"> 4점
+                    <input type="checkbox" value="5" name="pro7"> 5점
+                </div>
+            </div>
+
+            <!-- 인성 -->
+            <div class="section">
+                <h2>인성</h2>
+                <div class="question">
+                    <label>1. 비판적인 피드백을 받아들이고 다른 사람의 의견을 존중하나요?</label>
+                    <input type="checkbox" value="1" name="char1"> 1점
+                    <input type="checkbox" value="2" name="char1"> 2점
+                    <input type="checkbox" value="3" name="char1"> 3점
+                    <input type="checkbox" value="4" name="char1"> 4점
+                    <input type="checkbox" value="5" name="char1"> 5점
+                </div>
+                <div class="question">
+                    <label>2. 생활 속에서 사람들에게 밝은 미소로 인사하고 예의를 갖추나요?</label>
+                    <input type="checkbox" value="1" name="char2"> 1점
+                    <input type="checkbox" value="2" name="char2"> 2점
+                    <input type="checkbox" value="3" name="char2"> 3점
+                    <input type="checkbox" value="4" name="char2"> 4점
+                    <input type="checkbox" value="5" name="char2"> 5점
+                </div>
+                <div class="question">
+                    <label>3. 하기 싫은 일이 있어도 남에게 떠넘기지 않고 하려는 편인가요?</label>
+                    <input type="checkbox" value="1" name="char3"> 1점
+                    <input type="checkbox" value="2" name="char3"> 2점
+                    <input type="checkbox" value="3" name="char3"> 3점
+                    <input type="checkbox" value="4" name="char3"> 4점
+                    <input type="checkbox" value="5" name="char3"> 5점
+                </div>
+                <div class="question">
+                    <label>4. 힘들 때 감정을 조절하고 차분히 해결하려고 노력하나요?</label>
+                    <input type="checkbox" value="1" name="char4"> 1점
+                    <input type="checkbox" value="2" name="char4"> 2점
+                    <input type="checkbox" value="3" name="char4"> 3점
+                    <input type="checkbox" value="4" name="char4"> 4점
+                    <input type="checkbox" value="5" name="char4"> 5점
+                </div>
+                <div class="question">
+                    <label>5. 약속을 잘 지키며 책임감을 가지고 사명을 감당하나요?</label>
+                    <input type="checkbox" value="1" name="char5"> 1점
+                    <input type="checkbox" value="2" name="char5"> 2점
+                    <input type="checkbox" value="3" name="char5"> 3점
+                    <input type="checkbox" value="4" name="char5"> 4점
+                    <input type="checkbox" value="5" name="char5"> 5점
+                </div>
+                <div class="question">
+                    <label>6. 공동의 목표를 우선시하고 적극적으로 협력하나요?</label>
+                    <input type="checkbox" value="1" name="char6"> 1점
+                    <input type="checkbox" value="2" name="char6"> 2점
+                    <input type="checkbox" value="3" name="char6"> 3점
+                    <input type="checkbox" value="4" name="char6"> 4점
+                    <input type="checkbox" value="5" name="char6"> 5점
+                </div>
+                <div class="question">
+                    <label>7. 남의 실수를 이해하고 사랑하려고 노력하나요?</label>
+                    <input type="checkbox" value="1" name="char7"> 1점
+                    <input type="checkbox" value="2" name="char7"> 2점
+                    <input type="checkbox" value="3" name="char7"> 3점
+                    <input type="checkbox" value="4" name="char7"> 4점
+                    <input type="checkbox" value="5" name="char7"> 5점
+                </div>
+            </div>
+
+            <!-- 건강 -->
+            <div class="section">
+                <h2>건강</h2>
+                <div class="question">
+                    <label>1. 주 2회 이상 규칙적으로 운동하거나 신체 활동을 하나요?</label>
+                    <input type="checkbox" value="1" name="health1"> 1점
+                    <input type="checkbox" value="2" name="health1"> 2점
+                    <input type="checkbox" value="3" name="health1"> 3점
+                    <input type="checkbox" value="4" name="health1"> 4점
+                    <input type="checkbox" value="5" name="health1"> 5점
+                </div>
+                <div class="question">
+                    <label>2. 건강한 식단을 위해 노력하고 정크푸드 섭취를 줄이나요?</label>
+                    <input type="checkbox" value="1" name="health2"> 1점
+                    <input type="checkbox" value="2" name="health2"> 2점
+                    <input type="checkbox" value="3" name="health2"> 3점
+                    <input type="checkbox" value="4" name="health2"> 4점
+                    <input type="checkbox" value="5" name="health2"> 5점
+                </div>
+                <div class="question">
+                    <label>3. 정기적으로 건강검진을 받으려고 노력하나요?</label>
+                    <input type="checkbox" value="1" name="health3"> 1점
+                    <input type="checkbox" value="2" name="health3"> 2점
+                    <input type="checkbox" value="3" name="health3"> 3점
+                    <input type="checkbox" value="4" name="health3"> 4점
+                    <input type="checkbox" value="5" name="health3"> 5점
+                </div>
+                <div class="question">
+                    <label>4. 질병이나 피로가 심할 때 적절히 치료받나요?</label>
+                    <input type="checkbox" value="1" name="health4"> 1점
+                    <input type="checkbox" value="2" name="health4"> 2점
+                    <input type="checkbox" value="3" name="health4"> 3점
+                    <input type="checkbox" value="4" name="health4"> 4점
+                    <input type="checkbox" value="5" name="health4"> 5점
+                </div>
+                <div class="question">
+                    <label>5. 스트레스 관리를 위해 명상이나 취미 활동을 실천하나요?</label>
+                    <input type="checkbox" value="1" name="health5"> 1점
+                    <input type="checkbox" value="2" name="health5"> 2점
+                    <input type="checkbox" value="3" name="health5"> 3점
+                    <input type="checkbox" value="4" name="health5"> 4점
+                    <input type="checkbox" value="5" name="health5"> 5점
+                </div>
+                <div class="question">
+                    <label>6. 수면장애 없이 전반적으로 숙면을 취했나요?</label>
+                    <input type="checkbox" value="1" name="health6"> 1점
+                    <input type="checkbox" value="2" name="health6"> 2점
+                    <input type="checkbox" value="3" name="health6"> 3점
+                    <input type="checkbox" value="4" name="health6"> 4점
+                    <input type="checkbox" value="5" name="health6"> 5점
+                </div>
+                <div class="question">
+                    <label>7. 일을 해내는 데 충분한 의욕을 가지고 지냈나요?</label>
+                    <input type="checkbox" value="1" name="health7"> 1점
+                    <input type="checkbox" value="2" name="health7"> 2점
+                    <input type="checkbox" value="3" name="health7"> 3점
+                    <input type="checkbox" value="4" name="health7"> 4점
+                    <input type="checkbox" value="5" name="health7"> 5점
+                </div>
+            </div>
+
+            <!-- 연구심 -->
+            <div class="section">
+                <h2>연구심</h2>
+                <div class="question">
+                    <label>1. 호기심을 자극하는 도전적인 질문을 스스로에게 던지나요?</label>
+                    <input type="checkbox" value="1" name="research1"> 1점
+                    <input type="checkbox" value="2" name="research1"> 2점
+                    <input type="checkbox" value="3" name="research1"> 3점
+                    <input type="checkbox" value="4" name="research1"> 4점
+                    <input type="checkbox" value="5" name="research1"> 5점
+                </div>
+                <div class="question">
+                    <label>2. 모르는 주제에 대해 깊이 조사하고 배우려고 하나요?</label>
+                    <input type="checkbox" value="1" name="research2"> 1점
+                    <input type="checkbox" value="2" name="research2"> 2점
+                    <input type="checkbox" value="3" name="research2"> 3점
+                    <input type="checkbox" value="4" name="research2"> 4점
+                    <input type="checkbox" value="5" name="research2"> 5점
+                </div>
+                <div class="question">
+                    <label>3. 세상의 것을 보고 하나님 나라에서 적용할 방법을 고민하나요?</label>
+                    <input type="checkbox" value="1" name="research3"> 1점
+                    <input type="checkbox" value="2" name="research3"> 2점
+                    <input type="checkbox" value="3" name="research3"> 3점
+                    <input type="checkbox" value="4" name="research3"> 4점
+                    <input type="checkbox" value="5" name="research3"> 5점
+                </div>
+                <div class="question">
+                    <label>4. 문제를 해결하기 위해 다양한 방법을 실험하나요?</label>
+                    <input type="checkbox" value="1" name="research4"> 1점
+                    <input type="checkbox" value="2" name="research4"> 2점
+                    <input type="checkbox" value="3" name="research4"> 3점
+                    <input type="checkbox" value="4" name="research4"> 4점
+                    <input type="checkbox" value="5" name="research4"> 5점
+                </div>
+                <div class="question">
+                    <label>5. 실패를 분석하고 새롭게 문제를 해결하려 하나요?</label>
+                    <input type="checkbox" value="1" name="research5"> 1점
+                    <input type="checkbox" value="2" name="research5"> 2점
+                    <input type="checkbox" value="3" name="research5"> 3점
+                    <input type="checkbox" value="4" name="research5"> 4점
+                    <input type="checkbox" value="5" name="research5"> 5점
+                </div>
+                <div class="question">
+                    <label>6. 타분야 주제에도 관심을 가지고 배운 것을 적용하려 하나요?</label>
+                    <input type="checkbox" value="1" name="research6"> 1점
+                    <input type="checkbox" value="2" name="research6"> 2점
+                    <input type="checkbox" value="3" name="research6"> 3점
+                    <input type="checkbox" value="4" name="research6"> 4점
+                    <input type="checkbox" value="5" name="research6"> 5점
+                </div>
+                <div class="question">
+                    <label>7. 새로운 정보를 비판적으로 사고하려 하나요?</label>
+                    <input type="checkbox" value="1" name="research7"> 1점
+                    <input type="checkbox" value="2" name="research7"> 2점
+                    <input type="checkbox" value="3" name="research7"> 3점
+                    <input type="checkbox" value="4" name="research7"> 4점
+                    <input type="checkbox" value="5" name="research7"> 5점
+                </div>
+            </div>
+
+            <!-- 자발성 -->
+            <div class="section">
+                <h2>자발성</h2>
+                <div class="question">
+                    <label>1. 주어진 일을 기다리기보다 스스로 새로운 일을 찾아서 하나요?</label>
+                    <input type="checkbox" value="1" name="voluntary1"> 1점
+                    <input type="checkbox" value="2" name="voluntary1"> 2점
+                    <input type="checkbox" value="3" name="voluntary1"> 3점
+                    <input type="checkbox" value="4" name="voluntary1"> 4점
+                    <input type="checkbox" value="5" name="voluntary1"> 5점
+                </div>
+                <div class="question">
+                    <label>2. 맡은 역할 외에도 필요한 일을 적극적으로 돕나요?</label>
+                    <input type="checkbox" value="1" name="voluntary2"> 1점
+                    <input type="checkbox" value="2" name="voluntary2"> 2점
+                    <input type="checkbox" value="3" name="voluntary2"> 3점
+                    <input type="checkbox" value="4" name="voluntary2"> 4점
+                    <input type="checkbox" value="5" name="voluntary2"> 5점
+                </div>
+                <div class="question">
+                    <label>3. 업무 방향이 잘못되었다고 느낄 때 제안하거나 건의하나요?</label>
+                    <input type="checkbox" value="1" name="voluntary3"> 1점
+                    <input type="checkbox" value="2" name="voluntary3"> 2점
+                    <input type="checkbox" value="3" name="voluntary3"> 3점
+                    <input type="checkbox" value="4" name="voluntary3"> 4점
+                    <input type="checkbox" value="5" name="voluntary3"> 5점
+                </div>
+                <div class="question">
+                    <label>4. 새로운 프로젝트를 주도적으로 진행하려 하나요?</label>
+                    <input type="checkbox" value="1" name="voluntary4"> 1점
+                    <input type="checkbox" value="2" name="voluntary4"> 2점
+                    <input type="checkbox" value="3" name="voluntary4"> 3점
+                    <input type="checkbox" value="4" name="voluntary4"> 4점
+                    <input type="checkbox" value="5" name="voluntary4"> 5점
+                </div>
+                <div class="question">
+                    <label>5. 어려운 상황에서도 적극적으로 문제를 해결하려 하나요?</label>
+                    <input type="checkbox" value="1" name="voluntary5"> 1점
+                    <input type="checkbox" value="2" name="voluntary5"> 2점
+                    <input type="checkbox" value="3" name="voluntary5"> 3점
+                    <input type="checkbox" value="4" name="voluntary5"> 4점
+                    <input type="checkbox" value="5" name="voluntary5"> 5점
+                </div>
+                <div class="question">
+                    <label>6. 성과를 개선하기 위해 목표를 설정하고 실행하나요?</label>
+                    <input type="checkbox" value="1" name="voluntary6"> 1점
+                    <input type="checkbox" value="2" name="voluntary6"> 2점
+                    <input type="checkbox" value="3" name="voluntary6"> 3점
+                    <input type="checkbox" value="4" name="voluntary6"> 4점
+                    <input type="checkbox" value="5" name="voluntary6"> 5점
+                </div>
+                <div class="question">
+                    <label>7. 목표 달성을 위해 동료들에게 긍정적인 에너지를 전파하나요?</label>
+                    <input type="checkbox" value="1" name="voluntary7"> 1점
+                    <input type="checkbox" value="2" name="voluntary7"> 2점
+                    <input type="checkbox" value="3" name="voluntary7"> 3점
+                    <input type="checkbox" value="4" name="voluntary7"> 4점
+                    <input type="checkbox" value="5" name="voluntary7"> 5점
+                </div>
+            </div>
+
+            <button type="button" class="submit-button" onclick="calculateResults()">검사 완료</button>
+            <div class="result" id="resultContainer" style="display:none;">
+                <div class="chart-container">
+                    <canvas id="radarChart"></canvas>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        
+        function calculateResults() {
+                    window.addEventListener('load', () => {
+          const resultContainer = document.getElementById('resultContainer');
+          resultContainer.style.display = 'none'; // Hide the result container initially
+        });
+            const form = document.getElementById('surveyForm');
+            const inputs = form.querySelectorAll('input[type="checkbox"]');
+
+            const scores = {
+                faith: 0,
+                professionalism: 0,
+                character: 0,
+                health: 0,
+                research: 0,
+                voluntary: 0
+            };
+
+            inputs.forEach(input => {
+                if (input.checked) {
+                    if (input.name.startsWith('faith')) {
+                        scores.faith += parseInt(input.value);
+                    } else if (input.name.startsWith('pro')) {
+                        scores.professionalism += parseInt(input.value);
+                    } else if (input.name.startsWith('char')) {
+                        scores.character += parseInt(input.value);
+                    } else if (input.name.startsWith('health')) {
+                        scores.health += parseInt(input.value);
+                    } else if (input.name.startsWith('research')) {
+                        scores.research += parseInt(input.value);
+                    } else if (input.name.startsWith('voluntary')) {
+                        scores.voluntary += parseInt(input.value);
+                    }
+                }
+            });
+           
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.style.display = 'block';
+            
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['신앙', '전문성', '인성', '건강', '연구심', '자발성'],
+                    datasets: [{
+                        label: '평가 점수',
+                        data: [
+                            scores.faith,
+                            scores.professionalism,
+                            scores.character,
+                            scores.health,
+                            scores.research,
+                            scores.voluntary
+                            
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            suggestedMin: 0,
+                            suggestedMax: 35
+
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
